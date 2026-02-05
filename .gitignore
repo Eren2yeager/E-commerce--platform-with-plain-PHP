@@ -1,1 +1,24 @@
-.database.php
+database.php
+# config/database.php
+
+# Uploaded files
+assets/uploads/profiles/*
+!assets/uploads/profiles/.htaccess
+
+# Environment files
+.env
+.env.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
