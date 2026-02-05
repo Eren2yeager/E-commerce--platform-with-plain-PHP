@@ -94,7 +94,7 @@ function uploadProfileImage($user_id, $file) {
     }
     
     // Validate file size (5MB max)
-    $max_size = 5 * 1024 * 1024; // 5MB in bytes
+    $max_size = 20 * 1024 * 1024; // 5MB in bytes
     if ($file['size'] > $max_size) {
         return ['success' => false, 'message' => 'File too large. Maximum size is 5MB'];
     }

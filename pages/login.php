@@ -2,6 +2,7 @@
 require_once('../config/database.php');
 require_once('../includes/auth.php');
 
+$page_title = 'Login -ShopHub';
 // If already logged in, redirect to products
 if (isLoggedIn()){
     header("Location: products.php");

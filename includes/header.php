@@ -3,6 +3,9 @@
 if (!function_exists('isLoggedIn')) {
     require_once(__DIR__ . '/auth.php');
 }
+require_once(__DIR__ . '/profile_functions.php');
+$user_id = getCurrentUserId();
+$user = getUserProfile($user_id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +14,8 @@ if (!function_exists('isLoggedIn')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> <?php echo $page_title; ?></title>
+    <!-- Favicon (using an emoji for now, you can replace the href with a path to an image file like '../assets/favicon.ico') -->
+    <link rel="icon" href="../assets/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         * {
@@ -84,8 +89,34 @@ if (!function_exists('isLoggedIn')) {
             gap: 1rem;
         }
 
-        .user-greeting {
+        .profile-menu-item {
+            list-style: none;
+        }
+
+        .profile-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            text-decoration: none;
             color: white;
+        }
+
+        .profile-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .profile-username {
             font-weight: 500;
             display: none;
         }
@@ -164,7 +195,7 @@ if (!function_exists('isLoggedIn')) {
 
         /* Responsive */
         @media (min-width: 768px) {
-            .user-greeting {
+            .profile-username {
                 display: block;
             }
         }
@@ -222,7 +253,7 @@ if (!function_exists('isLoggedIn')) {
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="products.php" class="nav-logo">
+            <a href="../index.php" class="nav-logo">
                 <span>🛒</span>
                 <span>ShopHub</span>
             </a>
@@ -233,6 +264,9 @@ if (!function_exists('isLoggedIn')) {
 
             <ul class="nav-menu" id="navMenu">
                 <li><a href="products.php" class="nav-link">Products</a></li>
+                <?php if (isLoggedIn()): ?>
+                    <li><a href="orders.php" class="nav-link">My Orders</a></li>
+                <?php endif; ?>
                 <li>
                     <a href="cart.php" class="nav-link cart-link">
                         🛒 Cart
@@ -245,19 +279,28 @@ if (!function_exists('isLoggedIn')) {
                         <?php endif; ?>
                     </a>
                 </li>
-                <?php if (isLoggedIn()): ?>
-                    <li><a href="profile.php" class="nav-link">Profile</a></li>
-                <?php endif; ?>
 
-                <li class="nav-user">
-                    <?php if (isLoggedIn()): ?>
-                        <span class="user-greeting">Hi, <?= htmlspecialchars(getCurrentUsername()) ?>!</span>
-                        <a href="logout.php" class="btn-nav btn-secondary-nav">Logout</a>
-                    <?php else: ?>
+                <?php if (isLoggedIn()): ?>
+                    <li class="profile-menu-item">
+                        <a href="profile.php" class="profile-link">
+                            <?php
+                      
+                            
+                            $profile_image = '../assets/placeholder.png';
+                            if (!empty($user['profile_image'])) {
+                                $profile_image = $user['profile_image'];
+                            }
+                            ?>
+                            <img src="<?= $profile_image ?>" alt="Profile" class="profile-avatar" onerror="this.src='../assets/placeholder.png'">
+                            <span class="profile-username"><?= htmlspecialchars(getCurrentUsername()) ?></span>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-user">
                         <a href="login.php" class="btn-nav btn-secondary-nav">Login</a>
                         <a href="register.php" class="btn-nav btn-primary-nav">Sign Up</a>
-                    <?php endif; ?>
-                </li>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>

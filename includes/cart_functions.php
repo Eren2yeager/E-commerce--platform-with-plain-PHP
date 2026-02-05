@@ -235,4 +235,25 @@ function getCartTotal() {
         return 0;
     }
 }
+
+// Clear entire cart (used after order placement)
+function clearCart() {
+    global $conn;
+    
+    try {
+        if (isLoggedIn()) {
+            $user_id = getCurrentUserId();
+            $sql = "DELETE FROM cart WHERE user_id = ?";
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, "i", $user_id);
+            mysqli_stmt_execute($stmt);
+            return ['success' => true, 'message' => 'Cart cleared'];
+        } else {
+            $_SESSION['cart'] = [];
+            return ['success' => true, 'message' => 'Cart cleared'];
+        }
+    } catch (Exception $e) {
+        return ['success' => false, 'message' => 'Error: ' . $e->getMessage()];
+    }
+}
 ?>
