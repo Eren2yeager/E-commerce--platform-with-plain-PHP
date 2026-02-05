@@ -178,6 +178,9 @@
  - ![Admin Dashboard](screenshots/admin-dashboard.png)
  - ![Admin Products](screenshots/admin-products.png)
  - ![Admin Orders](screenshots/admin-orders.png)
+ - ![User Profile](screenshots/userprofile.png)
+ - ![Log In](screenshots/login.png)
+ - ![Sign Up](screenshots/signup.png)
  
  ## Notable Implementation Details
  
