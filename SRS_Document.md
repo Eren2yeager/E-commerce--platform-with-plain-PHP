@@ -131,6 +131,36 @@ The system provides the following major functions:
 - PHP extensions (mysqli) are enabled
 - Server has write permissions for upload directories
 
+### 2.7 Application Screenshots Overview
+
+The following screenshots provide a visual overview of the ShopHub e-commerce system:
+
+#### Customer-Facing Interface
+| Page | Screenshot |
+|------|------------|
+| Landing Page | ![Landing Page](screenshots/landing_page.png) |
+| Product Catalog | ![Products](screenshots/products.png) |
+| Product Details | ![Product Detail](screenshots/product-detail.png) |
+| Shopping Cart | ![Cart](screenshots/cart.png) |
+| Checkout | ![Checkout](screenshots/checkout.png) |
+
+#### User Account Management
+| Page | Screenshot |
+|------|------------|
+| Login | ![Login](screenshots/login.png) |
+| Registration | ![Sign Up](screenshots/signup.png) |
+| User Profile | ![User Profile](screenshots/userprofile.png) |
+| My Orders | ![My Orders](screenshots/myorders.png) |
+| Order Success | ![Order Success](screenshots/order-success.png) |
+
+#### Admin Panel
+| Page | Screenshot |
+|------|------------|
+| Dashboard | ![Admin Dashboard](screenshots/admin-dashboard.png) |
+| Product Management | ![Admin Products](screenshots/admin-products.png) |
+| Add Product | ![Admin Add Product](screenshots/admin-add-product.png) |
+| Order Management | ![Admin Orders](screenshots/admin-orders.png) |
+
 ---
 
 ## 3. System Features
@@ -338,52 +368,93 @@ Advanced product search and filtering capabilities.
 - Toast notifications for user feedback
 
 #### 4.1.2 Customer Interface Pages
+
 1. **Landing Page** (`index.php`)
    - Hero section with featured products
    - Statistics display
    - Category showcase
    - Featured products grid
 
-2. **Products Page** (`pages/products.php`)
+   ![Landing Page](screenshots/landing_page.png)
+
+2. **Login Page** (`pages/login.php`)
+   - Username/email input field
+   - Password input field
+   - Login button
+   - Link to registration page
+
+   ![Login Page](screenshots/login.png)
+
+3. **Registration Page** (`pages/register.php`)
+   - User registration form
+   - Username, email, password fields
+   - Create account button
+   - Link to login page
+
+   ![Sign Up Page](screenshots/signup.png)
+
+4. **Products Page** (`pages/products.php`)
    - Product grid with images
    - Search bar
    - Category and brand filters
    - Pagination controls
 
-3. **Product Detail Page** (`pages/product-detail.php`)
+   ![Products Page](screenshots/products.png)
+
+5. **Product Detail Page** (`pages/product-detail.php`)
    - Large product image
    - Product information
    - Add to cart button
    - Reviews section
    - Related products
 
-4. **Shopping Cart** (`pages/cart.php`)
+   ![Product Detail Page](screenshots/product-detail.png)
+
+6. **Shopping Cart** (`pages/cart.php`)
    - Cart items list
    - Quantity controls
    - Price calculations
    - Checkout button
 
-5. **Checkout Page** (`pages/checkout.php`)
+   ![Shopping Cart](screenshots/cart.png)
+
+7. **Checkout Page** (`pages/checkout.php`)
    - Order summary
    - Shipping information form
    - Payment method selection
    - Place order button
 
-6. **Orders Page** (`pages/orders.php`)
+   ![Checkout Page](screenshots/checkout.png)
+
+8. **Order Success Page** (`pages/order-success.php`)
+   - Order confirmation message
+   - Order details summary
+   - Continue shopping button
+
+   ![Order Success Page](screenshots/order-success.png)
+
+9. **Orders Page** (`pages/orders.php`)
    - Order history list
    - Order status indicators
    - View details links
 
-7. **User Profile** (`pages/profile.php`)
-   - Profile information display
-   - Edit profile form
-   - Profile image upload
+   ![My Orders Page](screenshots/myorders.png)
+
+10. **User Profile** (`pages/profile.php`)
+    - Profile information display
+    - Edit profile form
+    - Profile image upload
+
+    ![User Profile Page](screenshots/userprofile.png)
 
 #### 4.1.3 Admin Interface Pages
+
 1. **Admin Dashboard** (`admin/dashboard.php`)
    - Statistics cards
    - Quick action buttons
    - Recent products table
+
+   ![Admin Dashboard](screenshots/admin-dashboard.png)
 
 2. **Product Management** (`admin/products.php`)
    - Products table with actions
@@ -391,12 +462,24 @@ Advanced product search and filtering capabilities.
    - Edit product form
    - Delete confirmation
 
-3. **Order Management** (`admin/orders.php`)
+   ![Admin Products Page](screenshots/admin-products.png)
+
+3. **Add Product Form** (`admin/products.php`)
+   - Product information form
+   - Image upload
+   - Category and brand selection
+   - Price and stock management
+
+   ![Admin Add Product](screenshots/admin-add-product.png)
+
+4. **Order Management** (`admin/orders.php`)
    - Orders table with filters
    - Status update controls
    - View details links
 
-4. **User Management** (`admin/users.php`)
+   ![Admin Orders Page](screenshots/admin-orders.png)
+
+5. **User Management** (`admin/users.php`)
    - Users table
    - User information display
    - Role management
